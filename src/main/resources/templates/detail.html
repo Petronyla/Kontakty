@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="${'css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <link href="https://fonts.googleapis.com/css?family=Play:700&amp;subset=latin-ext" rel="stylesheet">
+    <title>Výchozí webová stránka | Java 2</title>
+</head>
+<body>
+    <!--/*@thymesVar id="jedenKontakt" type="cz.czechitas.webapp.Kontakt"*/-->
+
+    <div id="stranka">
+        <div id="zabalenyObsah">
+
+            <!--Hlavička stránky-->
+            <header class="hlavicka">
+                <h1>Kontakty</h1>
+            </header>
+
+            <!--Sekce s tabulkou-->
+            <section class="tabulka">
+                <form method="post">
+                    <table>
+                        <tr class="hlavickaTabulky">
+                            <th>Detail kontaktu</th>
+                        </tr>
+                        <tr>
+                            <td>Jméno:</td>
+                            <td ><input name="jmeno" value="jméno" th:value="${jedenKontakt.jmeno}"></td>
+                        </tr>
+                        <tr>
+                            <td>Telefon:</td>
+                            <td><input name="telefonniCislo" value="telefonní číslo"
+                                       th:value="${jedenKontakt.telefonniCislo}"></td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td><input name="email" value="e-mail" th:value="${jedenKontakt.email}"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="ulož" class="tlacitko">
+                                <a class="tlacitko" href="seznam.html">zpět</a></td>
+                        </tr>
+                    </table>
+                </form>
+            </section>
+        </div>
+
+        <!--Patička-->
+        <footer id="paticka">
+            <p>&copy; 2019, Petra Kubíčková</p>
+        </footer>
+    </div>
+</body>
+
+
+</html>
