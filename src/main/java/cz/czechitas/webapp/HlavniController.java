@@ -8,15 +8,7 @@ import org.springframework.web.servlet.*;
 @Controller
 public class HlavniController {
 
-    List<Kontakt> seznamKontaktu;
-
-    public HlavniController() {
-        seznamKontaktu = new ArrayList<>();
-        seznamKontaktu.add(new Kontakt(100L, "Hulk", "555 555 648", "hulk@avengers.com"));
-        seznamKontaktu.add(new Kontakt(101L, "Kapitán Amerika", "547 986 324", "captainamerica@avengers.com"));
-        seznamKontaktu.add(new Kontakt(102L, "Ironman", "598 635 226", "ironman@avengers.com"));
-        seznamKontaktu.add(new Kontakt(103L, "Spiderman", "514 255 363", "spiderman@avengers.com"));
-    }
+    private KontaktRepository kontaktRepository = new PametovaKontaktRepository();
 
     /**
      * Metoda, která přesměruje z /index.html na /seznam.html
@@ -34,6 +26,8 @@ public class HlavniController {
      */
     @RequestMapping("/seznam.html")
     public ModelAndView zobrazSeznam() {
+        List<Kontakt> seznamKontaktu = kontaktRepository.findAll();
+
         ModelAndView data = new ModelAndView("seznam");
         data.addObject("seznamKontaktu", seznamKontaktu);
         return data;
@@ -47,8 +41,8 @@ public class HlavniController {
     @RequestMapping(value = "/{idKontaktu:[0-9]+}.html", method = RequestMethod.GET)
     public ModelAndView zobrazDetail(@PathVariable Long idKontaktu) {
         ModelAndView data = new ModelAndView("detail");
-        Kontakt jedenKontakt = findById(idKontaktu);
-        data.addObject("jedenKontakt", jedenKontakt);
+        Kontakt nalezenyKontakt = kontaktRepository.findById(idKontaktu);
+        data.addObject("jedenKontakt", nalezenyKontakt);
         return data;
     }
 
@@ -56,41 +50,68 @@ public class HlavniController {
      * Metoda, která zpracuje a uloží změny ve formuláři s vybraným kontaktem
      * @param idKontaktu
      * @param vstup
-     * @return data
+     * @return ModelAndView
      */
     @RequestMapping(value = "/{idKontaktu:[0-9]+}.html", method = RequestMethod.POST)
     public ModelAndView zpracujDetail(@PathVariable Long idKontaktu, DetailForm vstup) {
-        Kontakt jedenKontakt = findById(idKontaktu);
-        jedenKontakt.setEmail(vstup.getEmail());
-        jedenKontakt.setJmeno(vstup.getJmeno());
-        jedenKontakt.setTelefonniCislo(vstup.getTelefonniCislo());
+        Kontakt nalezenyKontakt = kontaktRepository.findById(idKontaktu);
+        nalezenyKontakt.setEmail(vstup.getEmail());
+        nalezenyKontakt.setJmeno(vstup.getJmeno());
+        nalezenyKontakt.setTelefonniCislo(vstup.getTelefonniCislo());
+        kontaktRepository.save(nalezenyKontakt);
         return new ModelAndView("redirect:/seznam.html");
     }
 
     /**
      * Metoda, která zajistí smazání záznamu z tabulky kontaktů
      * @param idKontaktu
-     * @return data
+     * @return ModelAndView
      */
     @RequestMapping(value = "/{cislo:[0-9]+}/delete")
     public ModelAndView zpracujSeznam(@PathVariable("cislo") Long idKontaktu) {
-        Kontakt jedenKontakt = findById(idKontaktu);
-        seznamKontaktu.remove(jedenKontakt);
+        kontaktRepository.delete(idKontaktu);
         return  new ModelAndView("redirect:/seznam.html");
     }
+
+    /**
+     * Metoda na založení nového kontaktu a přípravu prázdného formuláře
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/new.html", method = RequestMethod.GET)
+    public ModelAndView zobrazNovy() {
+        Kontakt novyKontakt = new Kontakt();
+
+        ModelAndView data = new ModelAndView("detail");
+        data.addObject("jedenKontakt", novyKontakt);
+        return data;
+    }
+
+    /**
+     * Metoda na zpracování nového kontaktu a uložení proměnných
+     * @param vstup
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/new.html", method = RequestMethod.POST)
+    public ModelAndView zpracujNovy(DetailForm vstup) {
+        Kontakt novyKontakt = new Kontakt(vstup.getJmeno(), vstup.getTelefonniCislo(), vstup.getEmail());
+        kontaktRepository.save(novyKontakt);
+
+        return new ModelAndView("redirect:/seznam.html");
+    }
+
 
     /**
      * Metoda na nalezení kontaktu podle id
      * @param id
      * @return kontakt
      */
+
     public Kontakt findById(Long id) {
-        for (Kontakt kontakt : seznamKontaktu) {
+        for (Kontakt kontakt : kontaktRepository.findAll()) {
             if (kontakt.getId().equals(id)) {
                 return kontakt;
             }
         }
         return null;
     }
-
 }

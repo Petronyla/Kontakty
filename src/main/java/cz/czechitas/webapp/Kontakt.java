@@ -10,6 +10,9 @@ public class Kontakt {
     public Kontakt() {
     }
 
+    public Kontakt(String jmeno, String telefonniCislo, String email) {
+    }
+
     public Kontakt(Long id, String jmeno, String telefonniCislo, String email) {
         this.id = id;
         this.jmeno = jmeno;
