@@ -56,11 +56,6 @@ h1 {
 }
 
 .kontejner-detail {
-    /*margin: 5%;*/
-    /*padding: 10px;*/
-    /*background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");*/
-    /*background-repeat: repeat;*/
-    /*opacity: 0.8;*/
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -136,9 +131,9 @@ h1 {
     color: white;
     font-size: 10px;
     text-decoration: none;
-    box-shadow: 0px 0px 0px transparent;
-    border: 0px solid transparent;
-    text-shadow: 0px 0px 0px transparent;
+    box-shadow: 0 0 0 transparent;
+    border: 0 solid transparent;
+    text-shadow: 0 0 0 transparent;
 }
 
 .tlacitko:hover {
@@ -205,4 +200,123 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For tablets: */
+    body {
+        font-size: 20px;
+    }
+
+    .header {
+        height: 60px;
+    }
+
+    h1{
+        font-size: 30px;
+    }
+
+    .kontejner {
+        width: 70%;
+        margin: 10px auto;
+        grid-template-columns: 50px 100px 1fr 70px;
+        grid-template-rows: 1fr 2fr 1fr 1fr;
+    }
+
+    .hlavicka.jmeno{
+        font-size: 20px;
+    }
+
+    .edit {
+        grid-column: 4/5;
+        grid-row: 3/4;
+    }
+
+    .smaz {
+        grid-column: 4/5;
+        grid-row: 4/5;
+    }
+
+    .zabalany-kontejner {
+        width: 70%;
+        margin: 10px auto;
+    }
+
+    .kontejner-detail {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .detail-nadpis{
+        font-size: 16px;
+    }
+
+    .gap {
+        min-height: 20px;
+    }
+
+    .footer {
+        height: 60px;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    /* For PC and laptops */
+    body {
+        font-size: 24px;
+    }
+
+    .header {
+        height: 80px;
+    }
+
+    h1{
+        font-size: 36px;
+    }
+
+    .kontejner {
+        width: 60%;
+        margin: 10px auto;
+        grid-template-columns: 50px 100px 1fr 70px;
+        grid-template-rows: 1fr 2fr 1fr 1fr;
+    }
+
+    .hlavicka.jmeno{
+        font-size: 24px;
+    }
+
+    .edit {
+        grid-column: 4/5;
+        grid-row: 3/4;
+    }
+
+    .smaz {
+        grid-column: 4/5;
+        grid-row: 4/5;
+    }
+
+    .zabalany-kontejner {
+        width: 50%;
+        margin: 10px auto;
+    }
+
+    .kontejner-detail {
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .detail-nadpis{
+        font-size: 20px;
+    }
+
+    .gap {
+        min-height: 30px;
+    }
+
+    .footer {
+        height: 40px;
+        font-size: 16px;
+    }
+
 }
