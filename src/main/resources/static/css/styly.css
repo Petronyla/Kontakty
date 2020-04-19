@@ -251,6 +251,13 @@ h1 {
         font-size: 16px;
     }
 
+    .tlacitko {
+        height: 25px;
+        width: 50px;
+        font-size: 12px;
+    }
+
+
     .gap {
         min-height: 20px;
     }
@@ -308,6 +315,12 @@ h1 {
 
     .detail-nadpis{
         font-size: 20px;
+    }
+
+    .tlacitko {
+        height: 30px;
+        width: 60px;
+        font-size: 14px;
     }
 
     .gap {

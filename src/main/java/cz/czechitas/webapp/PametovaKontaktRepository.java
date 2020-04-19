@@ -3,6 +3,7 @@ package cz.czechitas.webapp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PametovaKontaktRepository implements KontaktRepository {
 
@@ -11,7 +12,7 @@ public class PametovaKontaktRepository implements KontaktRepository {
     /**
      * Metoda na naplnění seznamu kontaktů daty
      */
-    public static List<Kontakt> seznamKontaktu = new ArrayList<>(Arrays.asList(
+    public static List<Kontakt> seznamKontaktu = new CopyOnWriteArrayList<>(Arrays.asList(
             new Kontakt(100L, "Hulk", "555 555 648", "hulk@avengers.com"),
             new Kontakt(101L, "Kapitán Amerika", "547 986 324", "captainamerica@avengers.com"),
             new Kontakt(102L, "Ironman", "598 635 226", "ironman@avengers.com"),
