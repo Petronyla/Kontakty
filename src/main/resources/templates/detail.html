@@ -18,41 +18,37 @@
         <div id="zabalenyObsah">
 
             <!--Hlavička stránky-->
-            <header class="hlavicka">
+            <header class="header">
                 <h1>Kontakty</h1>
             </header>
 
             <!--Sekce s tabulkou-->
-            <section class="tabulka">
-                <form method="post">
-                    <table>
-                        <tr class="hlavickaTabulky">
-                            <th>Detail kontaktu</th>
-                        </tr>
-                        <tr>
-                            <td>Jméno:</td>
-                            <td ><input name="jmeno" value="jméno" th:value="${jedenKontakt.jmeno}"></td>
-                        </tr>
-                        <tr>
-                            <td>Telefon:</td>
-                            <td><input name="telefonniCislo" value="telefonní číslo"
-                                       th:value="${jedenKontakt.telefonniCislo}"></td>
-                        </tr>
-                        <tr>
-                            <td>E-mail:</td>
-                            <td><input name="email" value="e-mail" th:value="${jedenKontakt.email}"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" value="ulož" class="tlacitko">
-                                <a class="tlacitko" href="seznam.html">zpět</a></td>
-                        </tr>
-                    </table>
-                </form>
-            </section>
+            <form method="post">
+                <div class="zabalany-kontejner">
+                    <div class="detail-nadpis">
+                        <h2>Detail kontaktu</h2>
+                    </div>
+
+                    <div class="kontejner-detail">
+                        <span class="grid hlavicka jmeno-detail">Jméno</span>
+                        <span class="grid hlavicka telefon-detail">Telefon</span>
+                        <span class="grid hlavicka email-detail">E-mail</span>
+
+                        <span class="grid jmeno-detail"><input name="jmeno" value="jméno" th:value="${jedenKontakt.jmeno}"></span>
+                        <span class="grid telefon-detail"><input name="telefonniCislo" value="telefonní číslo"
+                        th:value="${jedenKontakt.telefonniCislo}"></span>
+                        <span class="grid email-detail"><input name="email" value="e-mail" th:value="${jedenKontakt.email}"></span>
+
+                        <td><input type="submit" value="ulož" class="tlacitko uloz-detail">
+                        <a class="tlacitko zpet-detail" href="seznam.html">zpět</a></td>
+                    </div>
+                </div>
+            </form>
+
         </div>
 
         <!--Patička-->
-        <footer id="paticka">
+        <footer class="footer">
             <p>&copy; 2019, Petra Kubíčková</p>
         </footer>
     </div>

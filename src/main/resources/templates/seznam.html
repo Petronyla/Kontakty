@@ -18,11 +18,11 @@
         <div class="zabalenyObsah">
 
             <!--Hlavička stránky-->
-            <header class="hlavicka">
+            <header class="header">
                 <h1>Kontakty</h1>
             </header>
 
-            <div class="konteiner" th:each="jedenKontakt : ${seznamKontaktu}">
+            <div class="kontejner" th:each="jedenKontakt : ${seznamKontaktu}">
                 <span class="grid hlavicka id">Id</span>
                 <span class="grid hlavicka jmeno">Jméno</span>
                 <span class="grid hlavicka telefon">Telefon</span>
@@ -39,7 +39,7 @@
                    href="delete.html">smaž</a>
             </div>
 
-            <div class="konteiner" th:remove="all">
+            <div class="kontejner" th:remove="all">
                 <span class="grid hlavicka id">Id</span>
                 <span class="grid hlavicka jmeno">Jméno</span>
                 <span class="grid hlavicka telefon">Telefon</span>

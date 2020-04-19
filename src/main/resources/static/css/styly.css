@@ -17,7 +17,7 @@ body {
     padding-bottom: 40px;
 }
 
-.hlavicka-stranky {
+.header {
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
     background-repeat: repeat;
     height: 40px;
@@ -31,12 +31,12 @@ h1 {
     font-family: 'Play', sans-serif;
     font-weight: 200;
     font-size: 24px;
-    margin: 15px 0 0 0;
+    margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.konteiner {
+.kontejner {
     margin: 5%;
     padding: 10px;
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
@@ -45,6 +45,25 @@ h1 {
     display: grid;
     grid-template-columns: 30px 80px 1fr 50px;
     grid-template-rows: 1fr 2fr 1fr 1fr 22px;
+    grid-gap: 5px 5px;
+}
+.zabalany-kontejner {
+    margin: 5%;
+    padding: 10px;
+    background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
+    background-repeat: repeat;
+    opacity: 0.8;
+}
+
+.kontejner-detail {
+    /*margin: 5%;*/
+    /*padding: 10px;*/
+    /*background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");*/
+    /*background-repeat: repeat;*/
+    /*opacity: 0.8;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-gap: 5px 5px;
 }
 
@@ -117,10 +136,62 @@ h1 {
     color: white;
     font-size: 10px;
     text-decoration: none;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
 }
 
 .tlacitko:hover {
     background-color: #5f5f67;
+}
+
+.detail-nadpis {
+    text-align: center;
+}
+
+.detail-nadpis h2 {
+    margin: 5px 0 10px 0;
+    color: #3b3b40;
+}
+
+.hlavicka.jmeno-detail {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.hlavicka.telefon-detail {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.hlavicka.email-detail {
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.jmeno-detail {
+    grid-column: 2/4;
+    grid-row: 1/2;
+}
+
+.telefon-detail {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.email-detail {
+    grid-column: 2/4;
+    grid-row: 3/4;
+}
+
+.uloz-detail {
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+.zpet-detail {
+    grid-column: 3/4;
+    grid-row: 4/5;
 }
 
 .footer {
