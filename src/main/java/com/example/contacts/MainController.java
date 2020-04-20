@@ -1,0 +1,79 @@
+package com.example.contacts;
+
+import java.util.*;
+import org.springframework.stereotype.*;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.*;
+
+@Controller
+public class MainController {
+
+    private ContactRepository contactRepository = new FileContactRepository();
+
+    /**
+     * When a user accesses the root URL (/), redirect them to the welcome page.
+     */
+    @RequestMapping("/")
+    public ModelAndView displayIndex() {
+        ModelAndView modelAndView = new ModelAndView("redirect:/list.html");
+        return modelAndView;
+    }
+
+    @RequestMapping("/list.html")
+    public ModelAndView displayList() {
+        List<Contact> listOfContacts = contactRepository.findAll();
+
+        ModelAndView modelAndView = new ModelAndView("list");
+        modelAndView.addObject("listOfContacts", listOfContacts);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{idContact:[0-9]+}.html", method = RequestMethod.GET)
+    public ModelAndView displayDetail(@PathVariable Long idContact) {
+        ModelAndView modelAndView = new ModelAndView("detail");
+        Contact foundContact = contactRepository.findById(idContact);
+        modelAndView.addObject("contact", foundContact);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{idContact:[0-9]+}.html", method = RequestMethod.POST)
+    public ModelAndView processDetail(@PathVariable Long idContact, DetailForm input) {
+        Contact foundContact = contactRepository.findById(idContact);
+        foundContact.setEmail(input.getEmail());
+        foundContact.setName(input.getName());
+        foundContact.setPhoneNumber(input.getPhoneNumber());
+        contactRepository.save(foundContact);
+        return new ModelAndView("redirect:/list.html");
+    }
+
+    @RequestMapping(value = "/{number:[0-9]+}/delete")
+    public ModelAndView processList(@PathVariable("number") Long idContact) {
+        contactRepository.deleteById(idContact);
+        return new ModelAndView("redirect:/list.html");
+    }
+
+    @RequestMapping(value = "/new.html", method = RequestMethod.GET)
+    public ModelAndView displayNew() {
+        Contact newContact = new Contact();
+        ModelAndView modelAndView = new ModelAndView("detail");
+        modelAndView.addObject("contact", newContact);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/new.html", method = RequestMethod.POST)
+    public ModelAndView processNew(DetailForm input) {
+        Contact newContact = new Contact(input.getName(), input.getPhoneNumber(), input.getEmail());
+        contactRepository.save(newContact);
+
+        return new ModelAndView("redirect:/list.html");
+    }
+
+    public Contact findById(Long id) {
+        for (Contact contact : contactRepository.findAll()) {
+            if (contact.getId().equals(id)) {
+                return contact;
+            }
+        }
+        return null;
+    }
+}
