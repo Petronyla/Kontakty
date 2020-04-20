@@ -53,8 +53,8 @@ public class MainController {
         return new ModelAndView("redirect:/list.html");
     }
 
-    @RequestMapping(value = "/{number:[0-9]+}/delete")
-    public ModelAndView processList(@PathVariable("number") Long idContact) {
+    @RequestMapping(value = "/{idContact:[0-9]+}/delete.html")
+    public ModelAndView processDelete(@PathVariable("idContact") Long idContact) {
         contactRepository.deleteById(idContact);
         return new ModelAndView("redirect:/list.html");
     }
@@ -71,7 +71,6 @@ public class MainController {
     public ModelAndView processNew(DetailForm input) {
         Contact newContact = new Contact(input.getName(), input.getPhoneNumber(), input.getEmail());
         contactRepository.save(newContact);
-
         return new ModelAndView("redirect:/list.html");
     }
 
