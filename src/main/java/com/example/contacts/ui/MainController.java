@@ -1,14 +1,21 @@
-package com.example.contacts;
+package com.example.contacts.ui;
 
 import java.util.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.*;
+import com.example.contacts.entity.Contact;
+import com.example.contacts.repository.ContactRepository;
+import com.example.contacts.repository.FileContactRepository;
 
 @Controller
 public class MainController {
 
-    private ContactRepository contactRepository = new FileContactRepository();
+    private ContactRepository contactRepository;
+
+    public MainController(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
 
     /**
      * When a user accesses the root URL (/), redirect them to the welcome page.

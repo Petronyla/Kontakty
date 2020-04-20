@@ -1,6 +1,7 @@
-package com.example.contacts;
+package com.example.contacts.repository;
 
 import java.util.List;
+import com.example.contacts.entity.Contact;
 
 public interface ContactRepository {
 

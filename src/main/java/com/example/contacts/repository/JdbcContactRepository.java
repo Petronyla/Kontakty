@@ -1,4 +1,4 @@
-package com.example.contacts;
+package com.example.contacts.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,24 +9,16 @@ import org.mariadb.jdbc.*;
 import org.springframework.jdbc.core.*;
 import org.springframework.jdbc.datasource.lookup.*;
 import org.springframework.jdbc.support.*;
+import com.example.contacts.entity.Contact;
 
 public class JdbcContactRepository implements ContactRepository {
 
     private JdbcTemplate jdbcTemplate;
     private RowMapper<Contact> rowMapper;
 
-    public JdbcContactRepository() {
-        try {
-            MariaDbDataSource configurationOfDatabase = new MariaDbDataSource();
-            configurationOfDatabase.setUserName("student");
-            configurationOfDatabase.setPassword("password");
-            configurationOfDatabase.setUrl("jdbc:mysql://localhost:3306/SeznamKontaktu");
-
-            jdbcTemplate = new JdbcTemplate(configurationOfDatabase);
-            rowMapper = BeanPropertyRowMapper.newInstance(Contact.class);
-        } catch (SQLException e) {
-            throw new DataSourceLookupFailureException("Failed to create DataSource", e);
-        }
+    public JdbcContactRepository(JdbcTemplate jdbcTemplate, RowMapper<Contact> rowMapper) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.rowMapper = rowMapper;
     }
 
     @Override

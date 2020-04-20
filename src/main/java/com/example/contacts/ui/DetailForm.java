@@ -1,11 +1,10 @@
-package com.example.contacts;
+package com.example.contacts.ui;
 
 public class DetailForm {
 
     private String name;
     private String phoneNumber;
     private String email;
-
 
     public String getName() {
         return name;

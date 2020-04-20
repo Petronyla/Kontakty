@@ -1,17 +1,22 @@
-package com.example.contacts;
+package com.example.contacts.repository;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.springframework.stereotype.Component;
+import com.example.contacts.entity.Contact;
 
+@Component
 public class FileContactRepository implements ContactRepository {
 
     public static final Pattern LINE_REGEX = Pattern.compile("([0-9]+)[,;]\"(.*?)\"[,;]\"(.*?)\"[,;]\"(.*?)\"");
+    public static final Path FILE_PATH = Paths.get("data.csv");
 
     private Long idSequence = 3000L;
 
@@ -111,7 +116,7 @@ public class FileContactRepository implements ContactRepository {
                         oneContact.getId() + ",\"" + oneContact.getName() + "\",\"" + oneContact.getPhoneNumber() + "\",\"" + oneContact.getEmail() + "\"";
                 rows.add(row);
             }
-            Files.write(Paths.get("data.csv"), rows, StandardCharsets.UTF_8);
+            Files.write(FILE_PATH, rows, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
