@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styles.css"
+          th:href="${'css/styles.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <link href="https://fonts.googleapis.com/css?family=Play:700&amp;subset=latin-ext" rel="stylesheet">
+    <title>Contact List</title>
+</head>
+<body>
+    <!--/*@thymesVar id="listOfContacts" type="java.util.List<cz.czechitas.webapp.Contact>"*/-->
+
+    <div id="page">
+        <div class="package-content">
+
+            <!--Header of page-->
+            <header id="header">
+                <h1>Kontakty</h1>
+            </header>
+
+            <div class="container" th:each="contact : ${listOfContacts}">
+                <span class="grid header id">Id</span>
+                <span class="grid header name">Jméno</span>
+                <span class="grid header phone-number">Telefon</span>
+                <span class="grid header email">E-mail</span>
+
+                <span class="grid id" th:text="${contact.id}">100</span>
+                <span class="grid name" th:text="${contact.name}">taťka Šmoula</span>
+                <span class="grid phone-number" th:text="${contact.phoneNumber}">+420 111 111 111</span>
+                <span class="grid email" th:text="${contact.email}">tatkasmoula@smoulivesnice.cz</span>
+
+                <a class="button edit" th:href="${contact.id} + '.html'"
+                   href="detail.html">edit</a>
+                <a class="button delete" th:href="${contact.id} + '/delete.html'"
+                   href="delete.html">smaž</a>
+            </div>
+
+            <div class="container" th:remove="all">
+                <span class="grid header id">Id</span>
+                <span class="grid header name">Jméno</span>
+                <span class="grid header phone-number">Telefon</span>
+                <span class="grid header email">E-mail</span>
+
+                <span class="grid id">101</span>
+                <span class="grid name">Šmoulinka</span>
+                <span class="grid phone-number">+420 222 222 222</span>
+                <span class="grid email">smoulinka@smoulivesnice.cz</span>
+
+                <a class="button edit"
+                   href="detail.html">edit</a>
+                <a class="button delete"
+                   href="delete.html">smaž</a>
+            </div>
+            <div class="packed-button">
+                <span><a class="button-new-contact" th:href="${'new.html'}"
+                         href="detail.html">Nový kontakt</a> </span>
+            </div>
+        </div>
+
+        <div class="gap"></div>
+
+        <!--Footer-->
+        <footer id="footer">
+            <p>&copy; 2020, Petra Kubíčková</p>
+        </footer>
+    </div>
+</body>
+
+
+</html>

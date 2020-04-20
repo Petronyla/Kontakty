@@ -17,7 +17,7 @@ body {
     padding-bottom: 40px;
 }
 
-.header {
+#header {
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
     background-repeat: repeat;
     height: 40px;
@@ -36,7 +36,7 @@ h1 {
     text-align: center;
 }
 
-.kontejner {
+.container {
     margin: 5%;
     padding: 10px;
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
@@ -47,7 +47,7 @@ h1 {
     grid-template-rows: 1fr 2fr 1fr 1fr 22px;
     grid-gap: 5px 5px;
 }
-.zabalany-kontejner {
+.packaged-container {
     margin: 5%;
     padding: 10px;
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
@@ -56,7 +56,7 @@ h1 {
     text-align: center;
 }
 
-.kontejner-detail {
+.container-detail {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -67,26 +67,26 @@ h1 {
     align-self: center;
 }
 
-.hlavicka {
+.header {
     font-weight: bold;
 }
 
-.hlavicka.id {
+.header.id {
     grid-column: 1/2;
     grid-row: 1/2;
 }
 
-.hlavicka.jmeno {
+.header.name {
     grid-column: 2/3;
     grid-row: 1/2;
     font-size: 12px;
 }
 
-.hlavicka.telefon {
+.header.phone-number {
     grid-column: 2/3;
 }
 
-.hlavicka.email {
+.header.email {
     grid-column: 2/3;
 }
 
@@ -95,13 +95,13 @@ h1 {
     grid-row: 2/3;
 }
 
-.jmeno {
+.name {
     grid-column: 2/4;
     grid-row: 2/3;
     font-weight: bold;
 }
 
-.telefon {
+.phone-number {
     grid-column: 3/4;
     grid-row: 3/4;
 }
@@ -116,12 +116,12 @@ h1 {
     grid-row: 5/6;
 }
 
-.smaz {
+.delete {
     grid-column: 3/4;
     grid-row: 5/6;
 }
 
-.tlacitko {
+.button {
     display: flex;
     width: 45px;
     height: 20px;
@@ -137,40 +137,40 @@ h1 {
     text-shadow: 0 0 0 transparent;
 }
 
-.tlacitko:hover {
+.button:hover {
     background-color: #5f5f67;
 }
 
-.detail-nadpis {
+.detail-headline {
     text-align: center;
 }
 
-.detail-nadpis h2 {
+.detail-headline h2 {
     margin: 5px 0 10px 0;
     color: #3b3b40;
 }
 
-.hlavicka.jmeno-detail {
+.header.name-detail {
     grid-column: 1/2;
     grid-row: 1/2;
 }
 
-.hlavicka.telefon-detail {
+.header.phone-number-detail {
     grid-column: 1/2;
     grid-row: 2/3;
 }
 
-.hlavicka.email-detail {
+.header.email-detail {
     grid-column: 1/2;
     grid-row: 3/4;
 }
 
-.jmeno-detail {
+.name-detail {
     grid-column: 2/4;
     grid-row: 1/2;
 }
 
-.telefon-detail {
+.phone-number-detail {
     grid-column: 2/4;
     grid-row: 2/3;
 }
@@ -180,22 +180,22 @@ h1 {
     grid-row: 3/4;
 }
 
-.uloz-detail {
+.save-detail {
     grid-column: 2/3;
     grid-row: 4/5;
 }
 
-.zpet-detail {
+.back-detail {
     grid-column: 3/4;
     grid-row: 4/5;
 }
 
-.zabalene_tlacitko {
+.packed-button {
     margin: 10px auto;
     width: 200px;
 }
 
-.tlacitko-novy-kontakt {
+.button-new-contact {
     display: flex;
     width: 200px;
     height: 30px;
@@ -211,7 +211,7 @@ h1 {
     text-shadow: 0 0 0 transparent;
 }
 
-.footer {
+#footer {
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
     background-repeat: repeat;
     position: absolute;
@@ -230,7 +230,7 @@ h1 {
         font-size: 20px;
     }
 
-    .header {
+    #header {
         height: 60px;
     }
 
@@ -238,14 +238,14 @@ h1 {
         font-size: 30px;
     }
 
-    .kontejner {
+    .container {
         width: 70%;
         margin: 20px auto;
         grid-template-columns: 50px 100px 1fr 70px;
         grid-template-rows: 1fr 2fr 1fr 1fr;
     }
 
-    .hlavicka.jmeno{
+    .header.name{
         font-size: 20px;
     }
 
@@ -254,48 +254,47 @@ h1 {
         grid-row: 3/4;
     }
 
-    .smaz {
+    .delete {
         grid-column: 4/5;
         grid-row: 4/5;
     }
 
-    .zabalany-kontejner {
+    .packaged-container {
         width: 70%;
         margin: 10px auto;
     }
 
-    .kontejner-detail {
+    .container-detail {
         width: 60%;
         margin: 0 auto;
     }
 
-    .detail-nadpis{
+    .detail-headline{
         font-size: 16px;
     }
 
-    .tlacitko {
+    .button {
         height: 25px;
         width: 50px;
         font-size: 12px;
     }
 
-    .zabalene_tlacitko {
+    .packed-button {
         margin: 15px auto;
         width: 250px;
     }
 
-    .tlacitko-novy-kontakt {
+    .button-new-contact {
         width: 250px;
         height: 40px;
         font-size: 14px;
     }
 
-
     .gap {
         min-height: 20px;
     }
 
-    .footer {
+    #footer {
         height: 60px;
     }
 
@@ -307,7 +306,7 @@ h1 {
         font-size: 24px;
     }
 
-    .header {
+    #header {
         height: 80px;
     }
 
@@ -315,14 +314,14 @@ h1 {
         font-size: 36px;
     }
 
-    .kontejner {
+    .container {
         width: 60%;
         margin: 10px auto;
-        grid-template-columns: 50px 100px 1fr 70px;
+        grid-template-columns: 60px 100px 1fr 70px;
         grid-template-rows: 1fr 2fr 1fr 1fr;
     }
 
-    .hlavicka.jmeno{
+    .header.name{
         font-size: 24px;
     }
 
@@ -331,37 +330,37 @@ h1 {
         grid-row: 3/4;
     }
 
-    .smaz {
+    .delete {
         grid-column: 4/5;
         grid-row: 4/5;
     }
 
-    .zabalany-kontejner {
+    .packaged-container {
         width: 50%;
         margin: 10px auto;
     }
 
-    .kontejner-detail {
+    .container-detail {
         width: 40%;
         margin: 0 auto;
     }
 
-    .detail-nadpis{
+    .detail-headline{
         font-size: 20px;
     }
 
-    .tlacitko {
+    .button {
         height: 30px;
         width: 60px;
         font-size: 14px;
     }
 
-    .zabalene_tlacitko {
+    .packed-button {
         margin: 15px auto;
         width: 300px;
     }
 
-    .tlacitko-novy-kontakt {
+    .button-new-contact {
         width: 300px;
         height: 40px;
         font-size: 16px;
@@ -371,7 +370,7 @@ h1 {
         min-height: 30px;
     }
 
-    .footer {
+    #footer {
         height: 40px;
         font-size: 16px;
     }

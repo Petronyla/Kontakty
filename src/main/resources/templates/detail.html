@@ -4,52 +4,54 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../static/css/styly.css"
-          th:href="${'css/styly.css'}"/>
+    <link rel="stylesheet" href="../static/css/styles.css"
+          th:href="${'css/styles.css'}"/>
     <link rel="icon" href="../static/images/favicon.png"
           th:href="${'images/favicon.png'}"/>
     <link href="https://fonts.googleapis.com/css?family=Play:700&amp;subset=latin-ext" rel="stylesheet">
-    <title>Výchozí webová stránka | Java 2</title>
+    <title>Contact List</title>
 </head>
 <body>
-    <!--/*@thymesVar id="jedenKontakt" type="cz.czechitas.webapp.Kontakt"*/-->
+    <!--/*@thymesVar id="contact" type="cz.czechitas.webapp.Contact"*/-->
 
-    <div id="stranka">
-        <div id="zabalenyObsah">
+    <div id="page">
+        <div class="packaged-content">
 
-            <!--Hlavička stránky-->
-            <header class="header">
+            <!--Header-->
+            <header id="header">
                 <h1>Kontakty</h1>
             </header>
 
-            <!--Sekce s tabulkou-->
+            <!--Section with form-->
             <form method="post">
-                <div class="zabalany-kontejner">
-                    <div class="detail-nadpis">
+                <div class="packaged-container">
+                    <div class="detail-headline">
                         <h2>Detail kontaktu</h2>
                     </div>
 
-                    <div class="kontejner-detail">
-                        <span class="grid hlavicka jmeno-detail">Jméno</span>
-                        <span class="grid hlavicka telefon-detail">Telefon</span>
-                        <span class="grid hlavicka email-detail">E-mail</span>
+                    <div class="container-detail">
+                        <span class="grid header name-detail">Jméno</span>
+                        <span class="grid header phone-number-detail">Telefon</span>
+                        <span class="grid header email-detail">E-mail</span>
 
-                        <span class="grid jmeno-detail"><input name="jmeno" value="jméno" th:value="${jedenKontakt.jmeno}"></span>
-                        <span class="grid telefon-detail"><input name="telefonniCislo" value="telefonní číslo"
-                        th:value="${jedenKontakt.telefonniCislo}"></span>
-                        <span class="grid email-detail"><input name="email" value="e-mail" th:value="${jedenKontakt.email}"></span>
+                        <span
+                                class="grid name-detail"><input name="name" value="jméno"
+                                                                th:value="${contact.name}"></span>
+                        <span class="grid phone-number-detail"><input name="phoneNumber" value="telefonní číslo"
+                                                                      th:value="${contact.phoneNumber}"></span>
+                        <span class="grid email-detail"><input name="email" value="e-mail" th:value="${contact.email}"></span>
 
-                        <td><input type="submit" value="ulož" class="tlacitko uloz-detail">
-                        <a class="tlacitko zpet-detail" href="seznam.html">zpět</a></td>
+                        <td><input type="submit" value="ulož" class="button save-detail">
+                        <a class="button back-detail" href="list.html">zpět</a></td>
                     </div>
                 </div>
             </form>
 
         </div>
 
-        <!--Patička-->
-        <footer class="footer">
-            <p>&copy; 2019, Petra Kubíčková</p>
+        <!--Footer-->
+        <footer id="footer">
+            <p>&copy; 2020, Petra Kubíčková</p>
         </footer>
     </div>
 </body>

@@ -1,25 +1,25 @@
 package cz.czechitas.webapp;
 
 public class DetailForm {
-    private String jmeno;
-    private String telefonniCislo;
+    private String name;
+    private String phoneNumber;
     private String email;
 
 
-    public String getJmeno() {
-        return jmeno;
+    public String getName() {
+        return name;
     }
 
-    public void setJmeno(String newValue) {
-        jmeno = newValue;
+    public void setName(String newValue) {
+        name = newValue;
     }
 
-    public String getTelefonniCislo() {
-        return telefonniCislo;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setTelefonniCislo(String newValue) {
-        telefonniCislo = newValue;
+    public void setPhoneNumber(String newValue) {
+        phoneNumber = newValue;
     }
 
     public String getEmail() {
