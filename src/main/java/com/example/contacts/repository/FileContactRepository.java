@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 import org.springframework.stereotype.Component;
 import com.example.contacts.entity.Contact;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 @Component
 public class FileContactRepository implements ContactRepository {
 
@@ -23,7 +25,7 @@ public class FileContactRepository implements ContactRepository {
     @Override
     public synchronized List<Contact> findAll() {
         try {
-            List<String> rows = Files.readAllLines(Paths.get("data.csv"));
+            List<String> rows = Files.readAllLines(FILE_PATH, UTF_8);
 
             List<Contact> contacts = new ArrayList<>(rows.size());
             for (String row : rows) {
@@ -116,7 +118,7 @@ public class FileContactRepository implements ContactRepository {
                         oneContact.getId() + ",\"" + oneContact.getName() + "\",\"" + oneContact.getPhoneNumber() + "\",\"" + oneContact.getEmail() + "\"";
                 rows.add(row);
             }
-            Files.write(FILE_PATH, rows, StandardCharsets.UTF_8);
+            Files.write(FILE_PATH, rows, UTF_8);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
