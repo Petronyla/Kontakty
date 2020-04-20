@@ -8,7 +8,7 @@ import org.springframework.web.servlet.*;
 @Controller
 public class HlavniController {
 
-    private KontaktRepository kontaktRepository = new SouborovaKontaktRapository();
+    private KontaktRepository kontaktRepository = new PametovaKontaktRepository();
 
     /**
      * Metoda, která přesměruje z /index.html na /seznam.html

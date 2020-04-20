@@ -53,6 +53,7 @@ h1 {
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
     background-repeat: repeat;
     opacity: 0.8;
+    text-align: center;
 }
 
 .kontejner-detail {
@@ -189,6 +190,27 @@ h1 {
     grid-row: 4/5;
 }
 
+.zabalene_tlacitko {
+    margin: 10px auto;
+    width: 200px;
+}
+
+.tlacitko-novy-kontakt {
+    display: flex;
+    width: 200px;
+    height: 30px;
+    background: #3b3b40;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    box-shadow: 0 0 0 transparent;
+    border: 0 solid transparent;
+    text-shadow: 0 0 0 transparent;
+}
+
 .footer {
     background-image: url("../images/noisy-texture-100x100-o5-d10-c-DCDCDC-t0.png");
     background-repeat: repeat;
@@ -218,7 +240,7 @@ h1 {
 
     .kontejner {
         width: 70%;
-        margin: 10px auto;
+        margin: 20px auto;
         grid-template-columns: 50px 100px 1fr 70px;
         grid-template-rows: 1fr 2fr 1fr 1fr;
     }
@@ -255,6 +277,17 @@ h1 {
         height: 25px;
         width: 50px;
         font-size: 12px;
+    }
+
+    .zabalene_tlacitko {
+        margin: 15px auto;
+        width: 250px;
+    }
+
+    .tlacitko-novy-kontakt {
+        width: 250px;
+        height: 40px;
+        font-size: 14px;
     }
 
 
@@ -321,6 +354,17 @@ h1 {
         height: 30px;
         width: 60px;
         font-size: 14px;
+    }
+
+    .zabalene_tlacitko {
+        margin: 15px auto;
+        width: 300px;
+    }
+
+    .tlacitko-novy-kontakt {
+        width: 300px;
+        height: 40px;
+        font-size: 16px;
     }
 
     .gap {
